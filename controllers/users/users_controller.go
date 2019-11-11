@@ -7,6 +7,7 @@ import (
 	"github.com/federicoleon/bookstore_users-api/services"
 	"github.com/federicoleon/bookstore_users-api/utils/errors"
 	"strconv"
+	"github.com/federicoleon/bookstore_oauth-go/oauth"
 )
 
 func getUserId(userIdParam string) (int64, *errors.RestErr) {
@@ -34,6 +35,11 @@ func Create(c *gin.Context) {
 }
 
 func Get(c *gin.Context) {
+	if err := oauth.AuthenticateRequest(c.Request); err != nil {
+		c.JSON(err.Status, err)
+		return
+	}
+
 	userId, idErr := getUserId(c.Param("user_id"))
 	if idErr != nil {
 		c.JSON(idErr.Status, idErr)
@@ -45,7 +51,11 @@ func Get(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, user.Marshall(c.GetHeader("X-Public") == "true"))
+	if oauth.GetCallerId(c.Request) == user.Id {
+		c.JSON(http.StatusOK, user.Marshall(false))
+		return
+	}
+	c.JSON(http.StatusOK, user.Marshall(oauth.IsPublic(c.Request)))
 }
 
 func Update(c *gin.Context) {
@@ -97,4 +107,19 @@ func Search(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, users.Marshall(c.GetHeader("X-Public") == "true"))
+}
+
+func Login(c *gin.Context) {
+	var request users.LoginRequest
+	if err := c.ShouldBindJSON(&request); err != nil {
+		restErr := errors.NewBadRequestError("invalid json body")
+		c.JSON(restErr.Status, restErr)
+		return
+	}
+	user, err := services.UsersService.LoginUser(request)
+	if err != nil {
+		c.JSON(err.Status, err)
+		return
+	}
+	c.JSON(http.StatusOK, user.Marshall(c.GetHeader("X-Public") == "true"))
 }
