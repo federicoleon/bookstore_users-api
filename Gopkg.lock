@@ -22,11 +22,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:6e15df82702c9ebc43c1ffb53c4d1cce01bfa80c9415809a09d6bf1f238defa3"
+  digest = "1:c9986bfd1c2729dfdeb5f2d0b1830976c28baa516fa78d848bcd9717fb1c5160"
   name = "github.com/federicoleon/bookstore_utils-go"
-  packages = ["rest_errors"]
+  packages = [
+    "logger",
+    "rest_errors",
+  ]
   pruneopts = "UT"
-  revision = "2dc3e9ac2a869e7eb5a10df70071c071cf9e47c1"
+  revision = "f8b94f132ebfdd735a5a25999b261b109136a0c5"
 
 [[projects]]
   digest = "1:3ee1d175a75b911a659fbd860060874c4f503e793c5870d13e5a0ede529a63cf"
@@ -258,11 +261,10 @@
   analyzer-version = 1
   input-imports = [
     "github.com/federicoleon/bookstore_oauth-go/oauth",
+    "github.com/federicoleon/bookstore_utils-go/logger",
     "github.com/federicoleon/bookstore_utils-go/rest_errors",
     "github.com/gin-gonic/gin",
     "github.com/go-sql-driver/mysql",
-    "go.uber.org/zap",
-    "go.uber.org/zap/zapcore",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
