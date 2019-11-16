@@ -11,14 +11,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:03c21d5099a08089010c97362659b6556655d27878237fa294849cc24b08e346"
+  digest = "1:e61ea9ea12e233a90caa75f22a61486d4473b53069d4e0723fdaa3ce2223f2a0"
   name = "github.com/federicoleon/bookstore_oauth-go"
-  packages = [
-    "oauth",
-    "oauth/errors",
-  ]
+  packages = ["oauth"]
   pruneopts = "UT"
-  revision = "50759d7cf84328b9d3236d9f1b4f43d3d11e5790"
+  revision = "d6e9e471b4ef8dcc7fe631de4d53fae426f97de6"
 
 [[projects]]
   branch = "master"
@@ -141,7 +138,7 @@
   revision = "2cfd321de3ee5d5f8a5fda2521d1703478334d98"
 
 [[projects]]
-  digest = "1:6be13632ab4bd5842a097abb3aabac045a8601e19a10da4239e7d8bd83d4b83c"
+  digest = "1:260048b6193e304ee294452a9e3410c474e3ce187248c7e2e4a2631207386f74"
   name = "go.uber.org/zap"
   packages = [
     ".",
@@ -152,8 +149,8 @@
     "zapcore",
   ]
   pruneopts = "UT"
-  revision = "a6015e13fab9b744d96085308ce4e8f11bad1996"
-  version = "v1.12.0"
+  revision = "33e58d4d0120aa28d4df84cd244838c490846c9d"
+  version = "v1.13.0"
 
 [[projects]]
   branch = "master"
@@ -168,15 +165,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:824b4d14e35e35e821d3127319e51eb838f72434100750ad395db96d00b5a871"
+  digest = "1:3b81f20605df873608343956a1f707bc63fe76bbc9ab3adb644ce95b4502a525"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "d32e6e3b99c40f2bfaea45ea9596ed539eed1c0d"
+  revision = "52ab431487773bc9dd1b0766228b1cf3944126bf"
 
 [[projects]]
   branch = "master"
-  digest = "1:06a2c8ccc3d240a260f282a6b65821536f42fed27aa1406a0eea1954ad556d3c"
+  digest = "1:49aa65e95f101c313ab9da226beeb48709ec3a1b056073253f2f3874f0fb738c"
   name = "golang.org/x/tools"
   packages = [
     "go/analysis",
@@ -196,7 +193,7 @@
     "internal/span",
   ]
   pruneopts = "UT"
-  revision = "9d59ce8a7f66443c9a512593b020a8248c2e4e1c"
+  revision = "3a792d9c32b2634e09d90a8e377b8f77fca8f02a"
 
 [[projects]]
   digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
